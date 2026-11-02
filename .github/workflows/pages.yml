@@ -1,0 +1,62 @@
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Lint HTML
+        run: npx --yes htmlhint@1.1.4 "**/*.html"
+
+      - name: Check JSX syntax
+        run: |
+          shopt -s globstar nullglob
+          files=(**/*.jsx)
+          [ ${#files[@]} -eq 0 ] && exit 0
+          npx --yes esbuild@0.24.0 "${files[@]}" --loader:.jsx=jsx --log-level=warning > /dev/null
+
+      - name: Check local links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress --root-dir "${{ github.workspace }}" "**/*.html"
+          fail: true
+
+  deploy:
+    needs: check
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

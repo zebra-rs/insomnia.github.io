@@ -1,1 +1,181 @@
-Hello
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-0696d6d0-6c46-4ae3-9b6a-67dbd4d0d465/styles.css">
+<script src="_ds/modernist-0696d6d0-6c46-4ae3-9b6a-67dbd4d0d465/_ds_bundle.js"></script>
+<style>
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); text-wrap: pretty; }
+a { color: var(--color-text); text-decoration: none; }
+a:hover { color: var(--color-accent); }
+</style>
+</helmet>
+
+<nav class="nav" style="padding-inline: clamp(20px, 5vw, 72px);">
+  <span class="nav-brand">NOS</span>
+  <a href="#builds">Builds</a>
+  <a href="#system">System</a>
+  <a href="#docs">Docs</a>
+  <button type="button" class="btn btn-primary">Download ISO</button>
+</nav>
+
+<main style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
+
+  <section data-screen-label="Hero" style="padding: 96px 0 56px; display: grid; gap: 40px;">
+    <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(64px, 15vw, 220px); line-height: 0.86; letter-spacing: -0.04em; margin: 0 0 0 -0.06em; text-transform: uppercase;"><span style="color: var(--color-accent);">I</span>n<span style="color: var(--color-accent);">SO</span>mnia</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; align-items: end; border-top: 2px solid var(--color-divider); padding-top: 24px;">
+      <p style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 600; max-width: 26ch;">The Network OS image.</p>
+      <p style="margin: 0; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 70%, transparent);">{{ version }} · x86_64 / ARM64</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <button type="button" class="btn btn-primary">Download ISO</button>
+        <button type="button" class="btn btn-ghost">Release notes</button>
+      </div>
+    </div>
+  </section>
+
+  <figure class="{{ imgClass }}" style="margin: 0; aspect-ratio: 16 / 8; overflow: hidden; border: 2px solid var(--color-divider);">
+    <sc-if value="{{ heroRoom }}" hint-placeholder-val="{{ true }}"><img src="uploads/Insomnia/IMG_8956.jpeg" alt="Store interior" style="width: 100%; height: 100%; object-fit: cover; display: block;"></sc-if>
+    <sc-if value="{{ heroWall }}" hint-placeholder-val="{{ false }}"><img src="uploads/Insomnia/IMG_8955.jpeg" alt="Store interior" style="width: 100%; height: 100%; object-fit: cover; display: block;"></sc-if>
+    <sc-if value="{{ heroCounter }}" hint-placeholder-val="{{ false }}"><img src="uploads/Insomnia/IMG_8958.jpeg" alt="Store interior" style="width: 100%; height: 100%; object-fit: cover; display: block;"></sc-if>
+  </figure>
+
+  <section id="system" data-screen-label="System" style="padding: 96px 0 0;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 2px solid var(--color-divider); padding-bottom: 16px;">
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 32px; letter-spacing: -0.015em; margin: 0;">System</h2>
+      <span style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">04 layers</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); border-left: 2px solid var(--color-divider);">
+        <a href="#" style="display: grid; gap: 16px; padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+          <div class="{{ imgClass }}" style="aspect-ratio: 3 / 4; overflow: hidden;">
+            <img src="uploads/Insomnia/IMG_8959.jpeg" alt="Kernel" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 22px; letter-spacing: -0.01em;">Kernel</span>
+            <span style="font-size: 13px; font-feature-settings: 'tnum' 1; color: color-mix(in srgb, var(--color-text) 70%, transparent);">01</span>
+          </div>
+        </a>
+        <a href="#" style="display: grid; gap: 16px; padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+          <div class="{{ imgClass }}" style="aspect-ratio: 3 / 4; overflow: hidden;">
+            <img src="uploads/Insomnia/IMG_8958.jpeg" alt="Fabric" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 22px; letter-spacing: -0.01em;">Fabric</span>
+            <span style="font-size: 13px; font-feature-settings: 'tnum' 1; color: color-mix(in srgb, var(--color-text) 70%, transparent);">02</span>
+          </div>
+        </a>
+        <a href="#" style="display: grid; gap: 16px; padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+          <div class="{{ imgClass }}" style="aspect-ratio: 3 / 4; overflow: hidden;">
+            <img src="uploads/Insomnia/IMG_8955.jpeg" alt="Control" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 22px; letter-spacing: -0.01em;">Control</span>
+            <span style="font-size: 13px; font-feature-settings: 'tnum' 1; color: color-mix(in srgb, var(--color-text) 70%, transparent);">03</span>
+          </div>
+        </a>
+        <a href="#" style="display: grid; gap: 16px; padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+          <div class="{{ imgClass }}" style="aspect-ratio: 3 / 4; overflow: hidden;">
+            <img src="uploads/Insomnia/IMG_8957.jpeg" alt="Interface" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 22px; letter-spacing: -0.01em;">Interface</span>
+            <span style="font-size: 13px; font-feature-settings: 'tnum' 1; color: color-mix(in srgb, var(--color-text) 70%, transparent);">04</span>
+          </div>
+        </a>
+    </div>
+  </section>
+
+  <section id="builds" data-screen-label="Builds" style="padding: 96px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 2px solid var(--color-divider); padding-bottom: 16px;">
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 32px; letter-spacing: -0.015em; margin: 0;">Builds</h2>
+      <div class="seg" role="radiogroup" aria-label="Architecture">
+        <sc-for list="{{ archs }}" as="a" hint-placeholder-count="2">
+          <label class="seg-opt"><input type="radio" name="arch" checked="{{ a.checked }}" onChange="{{ a.pick }}">{{ a.label }}</label>
+        </sc-for>
+      </div>
+    </div>
+    <div style="overflow-x: auto;">
+      <table class="table" style="width: 100%; min-width: 640px;">
+        <thead>
+          <tr><th>Image</th><th>Channel</th><th>Size</th><th>SHA-256</th><th></th></tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ builds }}" as="b" hint-placeholder-count="3">
+            <tr>
+              <td style="font-weight: 600;">{{ b.file }}</td>
+              <td><span class="{{ b.tagClass }}">{{ b.channel }}</span></td>
+              <td style="font-feature-settings: 'tnum' 1;">{{ b.size }}</td>
+              <td style="font-family: ui-monospace, monospace; font-size: 13px;">{{ b.sha }}</td>
+              <td style="text-align: right;"><button type="button" class="btn btn-secondary">Download</button></td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<section data-screen-label="Close" style="background: var(--color-accent); color: var(--color-bg);">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 96px clamp(20px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px; align-items: end;">
+    <h3 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(40px, 6vw, 88px); line-height: 0.95; letter-spacing: -0.03em; margin: 0;">Boot the network.</h3>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <button type="button" class="btn btn-ghost" style="color: var(--color-bg); border-color: var(--color-bg);">Download ISO</button>
+    </div>
+  </div>
+</section>
+
+<footer id="docs" style="max-width: 1320px; margin: 0 auto; padding: 32px clamp(20px, 5vw, 72px); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">
+  <span>NOS — Insomnia</span>
+  <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+    <a href="#">Docs</a>
+    <a href="#">Changelog</a>
+    <a href="#">Source</a>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;grayscale&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;heroPhoto&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Room&quot;,&quot;Wall&quot;,&quot;Counter&quot;],&quot;default&quot;:&quot;Room&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;version&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;v1.0&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { arch: 'x86_64' };
+  renderVals() {
+    const p = this.props;
+    const imgs = {
+      room: 'uploads/Insomnia/IMG_8956.jpeg',
+      wall: 'uploads/Insomnia/IMG_8955.jpeg',
+      sign: 'uploads/Insomnia/IMG_8957.jpeg',
+      counter: 'uploads/Insomnia/IMG_8958.jpeg',
+      table: 'uploads/Insomnia/IMG_8959.jpeg',
+    };
+    const heroKey = { 'Room': 'room', 'Wall': 'wall', 'Counter': 'counter' }[p.heroPhoto ?? 'Room'] || 'room';
+    const version = p.version ?? 'v1.0';
+    const a = this.state.arch;
+    const ext = a === 'x86_64' ? 'amd64' : 'arm64';
+    const v = version.replace(/^v/, '');
+    return {
+      version,
+      imgClass: (p.grayscale ?? true) ? 'grayscale' : '',
+      heroRoom: heroKey === 'room', heroWall: heroKey === 'wall', heroCounter: heroKey === 'counter',
+      layers: [
+        { num: '01', name: 'Kernel', src: imgs.table },
+        { num: '02', name: 'Fabric', src: imgs.counter },
+        { num: '03', name: 'Control', src: imgs.wall },
+        { num: '04', name: 'Interface', src: imgs.sign },
+      ],
+      archs: ['x86_64', 'ARM64'].map(l => ({ label: l, checked: l === a, pick: () => this.setState({ arch: l }) })),
+      builds: [
+        { file: `insomnia-${v}-${ext}.iso`, channel: 'Stable', tagClass: 'tag tag-accent', size: a === 'x86_64' ? '1.2 GB' : '1.1 GB', sha: '9f2c…e41a' },
+        { file: `insomnia-${v}-minimal-${ext}.iso`, channel: 'Stable', tagClass: 'tag tag-accent', size: '480 MB', sha: '3b7d…08cf' },
+        { file: `insomnia-nightly-${ext}.iso`, channel: 'Nightly', tagClass: 'tag tag-outline', size: '1.2 GB', sha: 'c51e…77b2' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
